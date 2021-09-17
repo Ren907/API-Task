@@ -10,5 +10,6 @@ namespace API_Task.Controllers
     public class AdviceSlipController : ApiController
     {
 
+
     }
 }
