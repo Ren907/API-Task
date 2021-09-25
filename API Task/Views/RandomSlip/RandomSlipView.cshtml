@@ -1,0 +1,22 @@
+﻿@model API_Task.Models.Slip
+
+
+@{
+    ViewBag.Title = "RandomSlipView";
+}
+
+<h2>Random Advice Slip View</h2>
+
+@Html.LabelFor(m => m.id)<br />
+    @Html.TextBoxFor(m => m.id, new { style= "width:50px;" })
+    <br />
+    @Html.LabelFor(m => m.advice)<br />
+    @Html.TextAreaFor(m => m.advice, new { style = "width:700px;" })
+    <br />
+    <br />
+@using (Html.BeginForm("RandomSlipView", "RandomSlip", FormMethod.Get))
+{
+    <button>Random Advice Slip</button>
+}
+
+
