@@ -11,7 +11,6 @@ namespace API_Task.Models
     {
         public string total_results { get; set; }
         public string query { get; set; }
-
         public List<Slip> slips { get; set; }
     }
 

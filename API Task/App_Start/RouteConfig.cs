@@ -16,7 +16,7 @@ namespace API_Task
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "AdviceSlipSearchController", action = "AdviceSlipSearchView", id = UrlParameter.Optional }
+                defaults: new { controller = "RandomSlip", action = "RandomSlipView", id = UrlParameter.Optional }
             );
         }
     }

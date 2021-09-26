@@ -16,6 +16,16 @@ namespace API_Task.Controllers
 {
     public class RandomSlipController : Controller
     {
+        public IEnumerable<string> Get()
+        {
+            return new string[] { "value1", "value2" };
+        }
+
+        public string Get(int id)
+        {
+            return "value";
+        }
+
         public ActionResult RandomSlipView()
         {
             string GetURL = String.Format("	https://api.adviceslip.com/advice");
@@ -45,5 +55,6 @@ namespace API_Task.Controllers
 
         }
 
+        
     }
 }

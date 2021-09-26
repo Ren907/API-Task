@@ -16,10 +16,9 @@ namespace API_Task.Controllers
         private int slipId;
         private string slipAdvice;
         private string slipDate;
-        
-        
 
-      [HttpGet]
+
+        [HttpGet]
         public ActionResult AdviceSlipSearchView()
         {
 
@@ -47,7 +46,6 @@ namespace API_Task.Controllers
 
             Rootobject obj = JsonConvert.DeserializeObject<Rootobject>(strResult);
 
-
             Rootobject model = new Rootobject()
             {
 
@@ -57,29 +55,32 @@ namespace API_Task.Controllers
 
             };
 
-            foreach (Slip item in obj.slips)
+            if (model.total_results == null)
             {
-                
-                {
-                    slipId = item.id;
-                    slipDate = item.date;
-                    slipAdvice = item.advice;
-
-                }
+                ModelState.AddModelError("NoRecords", "No Records found when Searching: " + SearchName);
+                return View();
             }
 
-            //Slip model = new Slip()
-            //{
+            else
+            {
 
-            //    id = slipId,
-            //    advice = slipAdvice,
-            //    date = slipDate
 
-            //};
+                foreach (Slip item in obj.slips)
+                {
 
-            return View(model);
-         
+                    {
+                        slipId = item.id;
+                        slipDate = item.date;
+                        slipAdvice = item.advice;
 
+                    }
+                }
+
+    
+                ModelState.AddModelError("RecordsFound", "Records Found Successfully");
+                return View(model);
+
+            }
         }
     }
 }
